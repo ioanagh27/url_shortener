@@ -62,6 +62,9 @@ def navigate_to(url):
     else:
         return f"Url desn`t exist"
     
+@app.route('/all')
+def all():
+    return render_template('all.html', urls=Links.query.all)
 
 if __name__ == "__main__":
     app.run(debug=True)

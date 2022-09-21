@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Your shortened urls{% endblock %}
+
+{% block content %}
+    {% for url in urls %}
+        <p>Long url: {{url.long_url}} </br>Short url: <a href="http://127.0.0.1:5000/{{url.short_url}}">http://127.0.0.1:5000/{{url.short_url}}</a></p>
+    {% endfor %}
+
+{% endblock content %}
