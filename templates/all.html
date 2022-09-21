@@ -7,7 +7,7 @@
     <h1>Your shortened links</h1>
     <div class="container">
         {% for url in urls %}
-            <p>Long url: {{url.long_url}} </br>Short url: <a href="http://127.0.0.1:5000/{{url.short_url}}">http://127.0.0.1:5000/{{url.short_url}}</a></p>
+            <p>Long url: <span style="color: blue;">{{url.long_url}}</span> </br>Short url: <a href="http://127.0.0.1:5000/{{url.short_url}}">http://127.0.0.1:5000/{{url.short_url}}</a></p></br>
         {% endfor %}
     </div>
     

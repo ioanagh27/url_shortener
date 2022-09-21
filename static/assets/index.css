@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+html {
+    height: 100vh;
+}
+
 body {
     background-image:url('/static/assets/backgrd.jpg');
     background-size: cover;
@@ -12,15 +16,15 @@ body {
 
 h1 {
     text-align: center;
+    margin-bottom: 4rem;
 }
 
 footer {
     position: fixed;
-    display: flex;
-    flex-direction: row;
     bottom: 20px;
-    justify-content: center;
-    margin: 0 50%;
+    left: 0;
+    text-align: center;
+    width: 100%;
 }
 
 footer p {
@@ -58,11 +62,14 @@ main {
 }
 
 .container{
-    margin: 0 auto;
-    padding: 10rem;
-    width: 100%;
-    margin-left: 11%;
-    font-size: 22px;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 #url {
@@ -82,14 +89,19 @@ main {
     color: white;
 }
 
-.centre {
+/* .centre {
     margin: 0 30%;
     text-decoration: none;
-}
+} */
 
 a {
     text-decoration: none;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 
