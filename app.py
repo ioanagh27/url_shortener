@@ -51,11 +51,12 @@ def home():
 
 @app.route('/display/<url>')
 def display_short_url(url):
+    print('😊')
     return render_template('shorturl.html', short_url_display=url)
 
-@app.route('/<short_url>')
-def navigate_to(short_url):
-    long_link = Links.query.filter_by(short_url=short_url).first()
+@app.route('/<url>')
+def navigate_to(url):
+    long_link = Links.query.filter_by(short_url=url).first()
     if long_link:
         return redirect(long_link.long_url)
     else:
