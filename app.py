@@ -1,3 +1,5 @@
+import random
+import string
 from flask import Flask, redirect, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 
@@ -21,11 +23,33 @@ def create_tables():
     db.create_all()
 
 
+def shorten_url():
+    letters = string.ascii_lowercase + string.ascii_uppercase
+    while True:
+        random_letters = random.choices(letters, k=4)
+        random_letters = "".join(random_letters)
+        short_link = Links.query.filter_by(short_url=random_letters).first()
+        if not short_link:
+            return random_letters
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def home():
-    return render_template('home.html')
+    if request.method == 'POST':
+        input_url = request.form['url']
+        matched_url = Links.query.filter_by(long_url=input_url).first()
+        if matched_url:
+            return f"{matched_url.short_url}"
+        else:
+            short = shorten_url()
+            new_url = Links(input_url, short)
+            db.session.add(new_url)
+            db.session.commit()
+            return redirect(url_for("short_url", url=short))
+    else:
+        return render_template('home.html')
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
