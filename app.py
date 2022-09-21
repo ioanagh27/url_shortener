@@ -64,7 +64,7 @@ def navigate_to(url):
     
 @app.route('/all')
 def all():
-    return render_template('all.html', urls=Links.query.all)
+    return render_template('all.html', urls=Links.query.all())
 
 if __name__ == "__main__":
     app.run(debug=True)
