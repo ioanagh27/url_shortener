@@ -1,10 +1,10 @@
 import random
 import string
-from flask import Flask, redirect, render_template, request
+from flask import Flask, redirect, render_template, request, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'SQLITE:///links.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///links.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -39,17 +39,28 @@ def home():
         input_url = request.form['url']
         matched_url = Links.query.filter_by(long_url=input_url).first()
         if matched_url:
-            return f"{matched_url.short_url}"
+            return redirect(url_for("display_short_url", url=matched_url.short_url))
         else:
             short = shorten_url()
             new_url = Links(input_url, short)
             db.session.add(new_url)
             db.session.commit()
-            return redirect(url_for("short_url", url=short))
+            return redirect(url_for("display_short_url", url=short))
     else:
         return render_template('home.html')
 
+@app.route('/display/<url>')
+def display_short_url(url):
+    return render_template('shorturl.html', short_url_display=url)
 
+@app.route('/<short_url>')
+def navigate_to(short_url):
+    long_link = Links.query.filter_by(short_url=short_url).first()
+    if long_link:
+        return redirect(long_link.long_url)
+    else:
+        return f"Url desn`t exist"
+    
 
 if __name__ == "__main__":
     app.run(debug=True)
