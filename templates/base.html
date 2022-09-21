@@ -8,6 +8,10 @@
     <title>{% block title %}{% endblock title %}</title>
 </head>
 <body>
+    <nav>        
+        <a href="{{ url_for('home')}}">Home</a>
+        <a href="{{ url_for('all')}}">All urls</a>
+    </nav>
     <main>
         {% block content %}{% endblock content %}
     </main>
