@@ -89,19 +89,9 @@ form {
     color: white;
 }
 
-/* .centre {
-    margin: 0 30%;
-    text-decoration: none;
-} */
-
 a {
     text-decoration: none;
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
 
 
