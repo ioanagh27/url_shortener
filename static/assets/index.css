@@ -9,9 +9,13 @@ html {
 }
 
 body {
-    background-image:url('/static/assets/backgrd.jpg');
-    background-size: cover;
+    background:url('/static/assets/backgrd.jpg');
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
     color: white;
+    background-color: black;
+    height: 100%;
 }
 
 h1 {
@@ -62,14 +66,21 @@ main {
 }
 
 .container{
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     text-align: center;
 }
 
 form {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+label {
+    background: black;
+    width: 100%;
+    padding-bottom: 1rem;
 }
 
 #url {
