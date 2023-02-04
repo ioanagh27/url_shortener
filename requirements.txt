@@ -1,2 +1,6 @@
 Flask
 Gunicorn
+sqlalchemy
+flask-sqlalchemy
+sqlalchemy-utils
+flask-cors
