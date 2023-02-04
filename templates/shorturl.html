@@ -6,11 +6,13 @@
 {% block title %}{{title}}{% endblock %}
 
 {% block content %}
+<div class="new">
     <div>
-        <h1>Your new url</h1>
+        <h1>Your new url:</h1>
     </div>
     
     <div class="container centre">
         <a href="https://url-shortener-fkpl.onrender.com/{{short_url_display}}">{{short_url_display}}</a>
     </div>
+</div>
 {% endblock content %}
