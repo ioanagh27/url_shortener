@@ -68,13 +68,20 @@ main {
 .container{
     font-size: 1.2rem;
     text-align: center;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+}
+
+.new {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.container a {
+.centre a {
     color: white;
     font-size: 2rem;
     background-color: #000000b8;
@@ -84,7 +91,7 @@ main {
     border: 2px solid white;
   }
 
-  .container a:hover {
+  .centre a:hover {
     background-color: blueviolet;
   }
 
